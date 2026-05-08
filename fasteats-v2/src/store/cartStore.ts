@@ -40,6 +40,7 @@ interface CartStore {
 
   // Order
   createOrder: (restaurantId: string) => Promise<Order>;
+  getTotal: () => number;
 }
 
 export const useCart = create<CartStore>()(
@@ -174,6 +175,11 @@ export const useCart = create<CartStore>()(
         });
 
         return order;
+      },
+
+      getTotal: () => {
+        const { items } = get();
+        return items.reduce((total, item) => total + item.price, 0);
       },
     }),
     {
