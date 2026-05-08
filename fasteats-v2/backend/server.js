@@ -11,11 +11,7 @@ const driverRoutes = require('./routes/drivers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// ===== Middleware =====
-app.use(cors({
-  origin: 'http://localhost:5173', // Vite dev server
-  credentials: true,
-}));
+app.use(require('cors')());
 app.use(express.json());
 
 // ===== Routes =====
