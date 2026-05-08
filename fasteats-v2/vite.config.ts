@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // كل طلبات /api تُحوَّل تلقائياً إلى Backend على port 3001
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'https://fasteats-alm0.onrender.com',
         changeOrigin: true,
       },
     },
