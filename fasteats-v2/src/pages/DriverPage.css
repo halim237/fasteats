@@ -1,0 +1,243 @@
+.driver-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.driver-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.driver-header p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.driver-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ecfdf5;
+  color: #10b981;
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.driver-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.driver-tabs button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.driver-tabs button:hover {
+  background: #f8fafc;
+}
+
+.driver-tabs button.active {
+  background: #0f172a;
+  color: white;
+}
+
+.driver-loading, .driver-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 20px;
+  border: 1px dashed #cbd5e1;
+}
+
+.driver-empty svg {
+  opacity: 0.2;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.driver-empty h3 {
+  color: #0f172a;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.driver-empty p {
+  max-width: 400px;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.refresh-btn {
+  background: #ea580c;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.orders-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-card {
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-id-badge {
+  background: #f1f5f9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.order-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.order-route {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.route-point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.route-point svg {
+  margin-top: 0.25rem;
+}
+
+.route-point.pickup svg { color: #ea580c; }
+.route-point.dropoff svg { color: #3b82f6; }
+
+.route-point div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.route-point strong {
+  color: #0f172a;
+  font-size: 1.1rem;
+}
+
+.route-point span {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.route-point .phone {
+  color: #0f172a;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.route-line {
+  position: absolute;
+  left: 8px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.order-card-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.accept-btn, .deliver-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.accept-btn {
+  background: #0f172a;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #1e293b;
+}
+
+.deliver-btn {
+  background: #10b981;
+  color: white;
+}
+
+.deliver-btn:hover {
+  background: #059669;
+}

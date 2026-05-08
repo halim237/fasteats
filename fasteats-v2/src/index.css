@@ -1,0 +1,69 @@
+:root {
+  /* Brand Palette */
+  --primary: #FF7D33;
+  --primary-hover: #E86A1C;
+  --primary-glow: rgba(255, 125, 1, 0.1);
+  
+  --secondary: #020617;
+  --accent: #FF7D33;
+  
+  --background: #ffffff;
+  --foreground: #020617;
+  
+  --card: #ffffff;
+  --card-hover: #f8fafc;
+  
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  
+  --border: rgba(2, 6, 23, 0.08);
+  --border-strong: rgba(2, 6, 23, 0.15);
+  
+  --success: #10b981;
+  --error: #ef4444;
+  
+  /* Tokens */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 2px 4px rgba(2, 6, 23, 0.04);
+  --shadow-premium: 0 20px 40px rgba(2, 6, 23, 0.08);
+}
+
+/* FORCED LIGHT MODE - Ignoring system preferences as per user request */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.glass {
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+
+/* Custom Scrollbar to match Navy brand */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 10px;
+}
