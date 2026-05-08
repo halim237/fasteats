@@ -40,7 +40,6 @@ interface CartStore {
 
   // Order
   createOrder: (restaurantId: string) => Promise<Order>;
-  getTotal: () => number;
 }
 
 export const useCart = create<CartStore>()(
@@ -149,7 +148,7 @@ export const useCart = create<CartStore>()(
 
       // ===== Order — يحفظ في PostgreSQL =====
       createOrder: async (restaurantId) => {
-        const { items, getTotal } = get();
+        const { items } = get();
 
         // تحضير الأصناف مع الكميات
         const itemsMap = new Map<string, { item: MenuItem; quantity: number }>();
@@ -176,8 +175,6 @@ export const useCart = create<CartStore>()(
 
         return order;
       },
-
-      getTotal: () => get().items.reduce((acc, item) => acc + item.price, 0),
     }),
     {
       name: 'fasteats-storage',

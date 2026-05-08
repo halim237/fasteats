@@ -3,8 +3,7 @@
  * يُضيف JWT token تلقائياً ويعالج الأخطاء
  */
 
-// In production, use the provided backend URL. In development, use '/api' (proxy)
-const BASE_URL = (import.meta.env.VITE_API_URL || '') + '/api';
+const BASE_URL = "https://fasteats-backend-b86v.onrender.com/api";
 
 function getToken(): string | null {
   return localStorage.getItem('fasteats_token');

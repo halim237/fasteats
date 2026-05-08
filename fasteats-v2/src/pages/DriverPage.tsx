@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Layout } from '../components/Layout';
-import { Truck, MapPin, CheckCircle, Navigation, Loader2, Info, XCircle } from 'lucide-react';
+import { Truck, MapPin, CheckCircle, Navigation, Loader2, XCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { api } from '../api/apiClient';
 import { useNavigate } from 'react-router-dom';
