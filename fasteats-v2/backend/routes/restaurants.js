@@ -50,8 +50,8 @@ router.get('/', async (_req, res) => {
 
     res.json(restaurants);
   } catch (err) {
-    console.error('GET /restaurants error:', err.message);
-    res.status(500).json({ error: 'خطأ في جلب المطاعم' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -125,8 +125,8 @@ router.get('/:id', async (req, res) => {
 
     res.json(restaurant);
   } catch (err) {
-    console.error('GET /restaurants/:id error:', err.message);
-    res.status(500).json({ error: 'خطأ في جلب بيانات المطعم' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -162,8 +162,8 @@ router.post('/', async (req, res) => {
 
     res.status(201).json(newRes);
   } catch (err) {
-    console.error('POST /restaurants error:', err.message);
-    res.status(500).json({ error: 'خطأ في إضافة المطعم' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -179,8 +179,8 @@ router.delete('/:id', async (req, res) => {
     }
     res.json({ message: 'تم حذف المطعم بنجاح' });
   } catch (err) {
-    console.error('DELETE /restaurants error:', err.message);
-    res.status(500).json({ error: 'خطأ في حذف المطعم' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -211,8 +211,8 @@ router.patch('/:id', async (req, res) => {
 
     res.json({ message: 'تم تحديث بيانات المطعم' });
   } catch (err) {
-    console.error('PATCH /restaurants error:', err.message);
-    res.status(500).json({ error: 'خطأ في تحديث المطعم' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -242,8 +242,8 @@ router.post('/:id/menu', async (req, res) => {
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error('POST /restaurants/:id/menu error:', err.message);
-    res.status(500).json({ error: 'خطأ في إضافة الصنف للقائمة' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -268,8 +268,8 @@ router.delete('/:id/menu/:itemId', async (req, res) => {
 
     res.json({ message: 'تم حذف الصنف بنجاح' });
   } catch (err) {
-    console.error('DELETE /restaurants/:id/menu/:itemId error:', err.message);
-    res.status(500).json({ error: 'خطأ في حذف الصنف' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
@@ -296,8 +296,8 @@ router.patch('/:id/menu/:itemId/availability', async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error('PATCH /restaurants/:id/menu/:itemId/availability error:', err.message);
-    res.status(500).json({ error: 'خطأ في تحديث حالة التوفر' });
+    console.error("🔥 DB ERROR:", err);
+    res.status(500).json({ error: err.message });
   }
 });
 
