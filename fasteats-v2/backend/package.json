@@ -4,7 +4,7 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node set-admin.js && node set-driver.js && node server.js",
     "dev": "nodemon server.js"
   },
   "dependencies": {

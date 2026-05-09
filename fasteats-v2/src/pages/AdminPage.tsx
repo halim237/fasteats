@@ -288,7 +288,7 @@ export const AdminPage = () => {
                         </div>
                       </td>
                       <td>
-                        {(res.menu as any).itemsCount ?? (res.menu?.items?.length) ?? 0} Articles
+                        {(res.menu as any)?.itemsCount ?? (res.menu?.items?.length) ?? 0} Articles
                       </td>
                       <td>
                         <div className="action-btns">
