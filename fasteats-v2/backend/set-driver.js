@@ -1,10 +1,5 @@
-const { Pool } = require('pg');
+const pool = require('./db');
 const bcrypt = require('bcryptjs');
-require('dotenv').config();
-
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
-});
 
 async function setDriver() {
   const hash = await bcrypt.hash('driver', 12);

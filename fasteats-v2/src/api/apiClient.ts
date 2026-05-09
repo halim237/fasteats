@@ -3,7 +3,6 @@
  * يُضيف JWT token تلقائياً ويعالج الأخطاء
  */
 
-// Use the environment variable in production, fallback to '/api' (proxy) in development
 const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 function getToken(): string | null {
