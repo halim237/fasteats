@@ -3,8 +3,8 @@ const path = require('path');
 const pool = require('./db');
 
 async function setupDatabase() {
-  if (process.env.NODE_ENV === 'production') {
-    console.warn('⚠️  Cannot run setup-db in production. Exiting.');
+  if (process.env.NODE_ENV === 'production' || (process.env.DATABASE_URL && process.env.DATABASE_URL.includes('onrender.com'))) {
+    console.warn('⚠️  Cannot run setup-db on a production/Render database. Exiting to protect data.');
     process.exit(0);
   }
 

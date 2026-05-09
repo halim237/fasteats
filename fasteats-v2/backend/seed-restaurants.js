@@ -1,6 +1,11 @@
 const pool = require('./db');
 
 async function seed() {
+  if (process.env.NODE_ENV === 'production' || (process.env.DATABASE_URL && process.env.DATABASE_URL.includes('onrender.com'))) {
+    console.warn('⚠️  Cannot run seed script on a production/Render database. Exiting.');
+    process.exit(0);
+  }
+
   try {
     console.log('🔄 جاري إضافة مطاعم تجريبية...');
 
