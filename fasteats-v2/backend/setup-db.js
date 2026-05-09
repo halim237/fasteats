@@ -3,6 +3,11 @@ const path = require('path');
 const pool = require('./db');
 
 async function setupDatabase() {
+  if (process.env.NODE_ENV === 'production') {
+    console.warn('⚠️  Cannot run setup-db in production. Exiting.');
+    process.exit(0);
+  }
+
   try {
     console.log('🔄 جاري تنظيف وإعداد قاعدة البيانات...');
     
