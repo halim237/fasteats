@@ -8,47 +8,19 @@ const router = express.Router();
 // ===================================================
 router.get('/', async (_req, res) => {
   try {
-    // جلب المطاعم
-    const restaurantsResult = await pool.query(
-      `SELECT r.restaurant_id, r.name, r.location, r.phone, r.image, r.rating,
-              m.menu_id, m.name AS menu_name,
-              COALESCE(
-                json_agg(DISTINCT rt.tag) FILTER (WHERE rt.tag IS NOT NULL),
-                '[]'
-              ) AS tags
-       FROM restaurants r
-       LEFT JOIN menus m ON m.restaurant_id = r.restaurant_id
-       LEFT JOIN restaurant_tags rt ON rt.restaurant_id = r.restaurant_id
-       GROUP BY r.restaurant_id, r.name, r.location, r.phone, r.image, r.rating, m.menu_id, m.name
-       ORDER BY r.rating DESC`
-    );
+    const result = await pool.query(`
+      SELECT 
+        restaurant_id AS "restaurantId",
+        name,
+        location,
+        phone,
+        image,
+        rating
+      FROM restaurants
+    `);
 
-    // لكل مطعم، نجلب عدد أصناف القائمة
-    const restaurants = await Promise.all(
-      restaurantsResult.rows.map(async (row) => {
-        const itemsCount = await pool.query(
-          'SELECT COUNT(*) FROM menu_items WHERE menu_id = $1',
-          [row.menu_id]
-        );
-
-        return {
-          restaurantId: row.restaurant_id,
-          name: row.name,
-          location: row.location,
-          phone: row.phone,
-          image: row.image,
-          rating: parseFloat(row.rating),
-          tags: row.tags,
-          menu: {
-            menuId: row.menu_id,
-            name: row.menu_name,
-            itemsCount: parseInt(itemsCount.rows[0].count),
-          },
-        };
-      })
-    );
-
-    res.json(restaurants);
+    // Return the simplified data directly
+    res.json(result.rows);
   } catch (err) {
     console.error("🔥 DB ERROR:", err);
     res.status(500).json({ error: err.message });
