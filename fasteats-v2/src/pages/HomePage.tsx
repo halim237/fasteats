@@ -46,11 +46,11 @@ export const HomePage = () => {
       const isFavTab = activeCategory === 'Favoris';
       const matchesCategory = isFavTab 
         ? favorites.includes(res.restaurantId) 
-        : (activeCategory === 'Tous' || res.tags.includes(activeCategory));
+        : (activeCategory === 'Tous' || (res.tags || []).includes(activeCategory));
       
       const matchesSearch =
         res.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        res.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+        (res.tags || []).some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesCategory && matchesSearch;
     });
   }, [restaurants, activeCategory, searchQuery, favorites]);
@@ -161,7 +161,7 @@ export const HomePage = () => {
                           </div>
                         </div>
                         <div className="res-tags">
-                          {res.tags.slice(0, 2).map((tag) => (
+                          {(res.tags || []).slice(0, 2).map((tag) => (
                             <span key={tag}>{tag}</span>
                           ))}
                         </div>

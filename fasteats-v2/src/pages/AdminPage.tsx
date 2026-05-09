@@ -104,7 +104,7 @@ export const AdminPage = () => {
       location: res.location,
       phone: res.phone,
       image: res.image,
-      tags: res.tags.join(', ')
+      tags: (res.tags || []).join(', ')
     });
     setIsModalOpen(true);
   };
